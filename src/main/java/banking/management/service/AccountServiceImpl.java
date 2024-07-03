@@ -57,6 +57,11 @@ public class AccountServiceImpl implements AccountService {
             List<Long> userIds = accountDetailsDTO.getUserId();
             if (userIds != null && !userIds.isEmpty()) {
                 List<User> users = userRepository.findByUserIdIn(userIds);
+                if (users.size() != userIds.size()) {
+                    List<Long> foundUserIds = users.stream().map(User::getUserId).toList();
+                    List<Long> notFoundUserIds = userIds.stream().filter(id -> !foundUserIds.contains(id)).toList();
+                    throw new EntityNotFoundException("Users not found with IDs: " + notFoundUserIds);
+                }
                 account.setUsers(users);
                 List<Account> accountList = new ArrayList<>();
                 accountList.add(account);
@@ -68,11 +73,11 @@ public class AccountServiceImpl implements AccountService {
             savedAccount = accountRepository.save(account);
             logger.info("Account created successfully with ID: " + savedAccount.getAccountId());
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while creating the account: " + e.getMessage(), e);
-            throw new RuntimeException("Unexpected error occurred while creating the account", e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while creating the account: " + e.getMessage());
+            throw new RuntimeException("Unexpected error occurred while creating the account");
         }
         return mapToDTO(savedAccount);
     }
@@ -115,6 +120,11 @@ public class AccountServiceImpl implements AccountService {
             List<Long> userIds = accountDetailsDTO.getUserId();
             if (userIds != null && !userIds.isEmpty()) {
                 List<User> users = userRepository.findByUserIdIn(userIds);
+                if (users.size() != userIds.size()) {
+                    List<Long> foundUserIds = users.stream().map(User::getUserId).toList();
+                    List<Long> notFoundUserIds = userIds.stream().filter(id -> !foundUserIds.contains(id)).toList();
+                    throw new EntityNotFoundException("Users not found with IDs: " + notFoundUserIds);
+                }
                 account.setUsers(users);
                 List<Account> accountList = new ArrayList<>();
                 accountList.add(account);
@@ -127,11 +137,11 @@ public class AccountServiceImpl implements AccountService {
             logger.info("Account updated successfully with ID: " + updatedAccount.getAccountId());
             return mapToDTO(updatedAccount);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while updating the account: " + e.getMessage(), e);
-            throw new RuntimeException("Unexpected error occurred while updating the account", e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while updating the account: " + e.getMessage());
+            throw new RuntimeException("Unexpected error occurred while updating the account");
         }
     }
 

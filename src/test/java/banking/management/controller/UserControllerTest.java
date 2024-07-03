@@ -56,16 +56,19 @@ public class UserControllerTest {
 
     @Test
     public void testCreateUser() throws Exception {
+        userDetailsDTO.setPassword("longpassword");
+
         given(userService.createUser(any(UserDetailsDTO.class))).willReturn(userDetailsDTO);
 
         mockMvc.perform(post("/api/users")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"userName\":\"johndoe\",\"address\":\"123 Main St\",\"phoneNumber\":\"1234567890\",\"dob\":\"1990-01-01\",\"password\":\"password\"}"))
+                        .content("{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"userName\":\"johndoe\",\"address\":\"123 Main St\",\"phoneNumber\":\"1234567890\",\"dob\":\"1990-01-01\",\"password\":\"longpassword\"}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.userId").value(1L))
                 .andExpect(jsonPath("$.data.name").value("John Doe"))
                 .andExpect(jsonPath("$.data.email").value("john.doe@example.com"));
     }
+
 
     @Test
     public void testGetUserById() throws Exception {
