@@ -59,11 +59,11 @@ public class PaymentServiceImpl implements PaymentService {
             savedPayment = paymentRepository.save(payment);
             logger.info("Payment created successfully with ID: " + savedPayment.getPaymentId());
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while creating the payment: " + e.getMessage(), e);
-            throw new RuntimeException("Unexpected error occurred while creating the payment", e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while creating the payment: " + e.getMessage());
+            throw new RuntimeException("Unexpected error occurred while creating the payment");
         }
         return mapToDTO(savedPayment);
     }
@@ -78,11 +78,11 @@ public class PaymentServiceImpl implements PaymentService {
             logger.info("Payment retrieved successfully for ID: " + paymentId);
             return mapToDTO(payment);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the payment: " + e.getMessage(), e);
-            throw new RuntimeException("Unexpected error occurred while retrieving the payment", e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the payment: " + e.getMessage());
+            throw new RuntimeException("Unexpected error occurred while retrieving the payment");
         }
     }
 

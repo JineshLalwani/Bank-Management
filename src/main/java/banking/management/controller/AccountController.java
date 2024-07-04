@@ -47,10 +47,10 @@ public class AccountController {
             logger.info("Account retrieved successfully for ID: " + accountId);
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(true, HttpStatus.OK, "Account retrieved successfully"), accountDetailsDTO), HttpStatus.OK);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Account not found with ID: " + accountId, e);
+            logger.log(Level.SEVERE, "Account not found with ID: " + accountId);
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(false, HttpStatus.NOT_FOUND, "Account not found"), null), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the account: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the account: " + e.getMessage());
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(false, HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error occurred"), null), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -63,13 +63,13 @@ public class AccountController {
             logger.info("Account updated successfully with ID: " + updatedAccount.getAccountId());
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(true, HttpStatus.OK, "Account updated successfully"), updatedAccount), HttpStatus.OK);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Account not found with ID: " + accountId, e);
+            logger.log(Level.SEVERE, "Account not found with ID: " + accountId);
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(false, HttpStatus.NOT_FOUND, "Account not found"), null), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException e) {
             logger.log(Level.SEVERE, "Data integrity violation during account update: " + e.getMessage());
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(false, HttpStatus.NOT_ACCEPTABLE, "Data integrity violation"), null), HttpStatus.NOT_ACCEPTABLE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while updating the account: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while updating the account: " + e.getMessage());
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(false, HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error occurred"), null), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -82,10 +82,10 @@ public class AccountController {
             logger.info("Account deleted successfully with ID: " + accountId);
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(true, HttpStatus.NO_CONTENT, "Account deleted successfully"), null), HttpStatus.NO_CONTENT);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Account not found with ID: " + accountId, e);
+            logger.log(Level.SEVERE, "Account not found with ID: " + accountId);
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(false, HttpStatus.NOT_FOUND, "Account not found"), null), HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the account: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the account: " + e.getMessage());
             return new ResponseEntity<>(new APIResponse<>(new ResponseMeta(false, HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error occurred"), null), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

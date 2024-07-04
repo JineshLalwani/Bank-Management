@@ -44,7 +44,7 @@ public class LoanController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Entity not found: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Entity not found: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -74,7 +74,7 @@ public class LoanController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.NOT_ACCEPTABLE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while creating the loan: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while creating the loan: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -111,7 +111,7 @@ public class LoanController {
 
             return ResponseEntity.ok(apiResponse);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Loan not found with ID: " + loanId, e);
+            logger.log(Level.SEVERE, "Loan not found with ID: " + loanId);
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -126,7 +126,7 @@ public class LoanController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the loan: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the loan: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -163,7 +163,7 @@ public class LoanController {
 
             return ResponseEntity.ok(apiResponse);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Loan not found with ID: " + loanId, e);
+            logger.log(Level.SEVERE, "Loan not found with ID: " + loanId);
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -193,7 +193,7 @@ public class LoanController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.NOT_ACCEPTABLE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while updating the loan: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while updating the loan: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -230,7 +230,7 @@ public class LoanController {
 
             return ResponseEntity.noContent().build();
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Loan not found with ID: " + loanId, e);
+            logger.log(Level.SEVERE, "Loan not found with ID: " + loanId);
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -245,7 +245,7 @@ public class LoanController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the loan: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the loan: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)

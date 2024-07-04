@@ -91,11 +91,11 @@ public class AccountServiceImpl implements AccountService {
             logger.info("Account retrieved successfully for ID: " + accountId);
             return mapToDTO(account);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the account: " + e.getMessage(), e);
-            throw new RuntimeException("Unexpected error occurred while retrieving the account", e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the account: " + e.getMessage());
+            throw new RuntimeException("Unexpected error occurred while retrieving the account");
         }
     }
 
@@ -156,11 +156,11 @@ public class AccountServiceImpl implements AccountService {
             accountRepository.deleteById(accountId);
             logger.info("Account deleted successfully with ID: " + accountId);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the account: " + e.getMessage(), e);
-            throw new RuntimeException("Unexpected error occurred while deleting the account", e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the account: " + e.getMessage());
+            throw new RuntimeException("Unexpected error occurred while deleting the account");
         }
     }
 
@@ -182,7 +182,7 @@ public class AccountServiceImpl implements AccountService {
 
             logger.info("Monthly Interest adding process completed.");
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Error occurred during Monthly Interest addition: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Error occurred during Monthly Interest addition: " + e.getMessage());
         }
     }
 

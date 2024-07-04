@@ -44,7 +44,7 @@ public class PaymentController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Entity not found: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Entity not found: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -74,7 +74,7 @@ public class PaymentController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.NOT_ACCEPTABLE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while creating the payment: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while creating the payment: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -111,7 +111,7 @@ public class PaymentController {
 
             return ResponseEntity.ok(apiResponse);
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "Payment not found with ID: " + paymentId, e);
+            logger.log(Level.SEVERE, "Payment not found with ID: " + paymentId);
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
@@ -126,7 +126,7 @@ public class PaymentController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the payment: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the payment: " + e.getMessage());
 
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)

@@ -1,27 +1,23 @@
 <configuration>
-    <appender name ="consoleappender" class="ch.qos.logback.ConsoleAppender">
+    <appender name="consoleappender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>
-                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-            </pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <appender name ="fileappender" class="ch.qos.logback.core.FileAppender">
-        <!--        <fileNamePattern>ClaimProject-%d{yy-M-dd_HH-mm}.log</fileNamePattern>-->
-        <file>
-            Management.log
-        </file>
-        <!--        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
-        <!--            <maxFileSize>10MB</maxFileSize>-->
-        <!--            <MaxHistory>10</MaxHistory>-->
-        <!--        </rollingPolicy>-->
+    <appender name="fileappender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>Management.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>Management-%d{yyyy-MM-dd_HH-mm}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>100MB</totalSizeCap>
+        </rollingPolicy>
         <encoder>
-            <pattern>
-                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-            </pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
     <root level="INFO">
+        <appender-ref ref="consoleappender"/>
         <appender-ref ref="fileappender"/>
     </root>
 </configuration>

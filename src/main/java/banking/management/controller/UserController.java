@@ -46,7 +46,7 @@ public class UserController {
                     .build();
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new APIResponse<>(meta, null));
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while creating the user: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while creating the user: " + e.getMessage());
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
                     .statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -77,7 +77,7 @@ public class UserController {
                     .build();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse<>(meta, null));
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the user: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the user: " + e.getMessage());
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
                     .statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -100,7 +100,7 @@ public class UserController {
                     .build();
             return ResponseEntity.ok(new APIResponse<>(meta, updatedUser));
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "User not found with ID: " + userId, e);
+            logger.log(Level.SEVERE, "User not found with ID: " + userId);
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
                     .statusCode(HttpStatus.NOT_FOUND)
@@ -116,7 +116,7 @@ public class UserController {
                     .build();
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(new APIResponse<>(meta, null));
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while updating the user: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while updating the user: " + e.getMessage());
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
                     .statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -139,7 +139,7 @@ public class UserController {
                     .build();
             return ResponseEntity.noContent().build();
         } catch (EntityNotFoundException e) {
-            logger.log(Level.SEVERE, "User not found with ID: " + userId, e);
+            logger.log(Level.SEVERE, "User not found with ID: " + userId);
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
                     .statusCode(HttpStatus.NOT_FOUND)
@@ -147,7 +147,7 @@ public class UserController {
                     .build();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse<>(meta, null));
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the user: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, "Unexpected error occurred while deleting the user: " + e.getMessage());
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(false)
                     .statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
