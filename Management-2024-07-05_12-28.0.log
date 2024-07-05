@@ -1,0 +1,16 @@
+12:28:29.987 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+12:28:30.004 [main] INFO  b.management.ManagementApplication - Starting ManagementApplication using Java 17.0.10 with PID 28678 (/Users/Gurdeep/Desktop/IntelliJAVA/Bank-Management/build/classes/java/main started by Gurdeep in /Users/Gurdeep/Desktop/IntelliJAVA/Bank-Management)
+12:28:30.005 [main] INFO  b.management.ManagementApplication - No active profile set, falling back to 1 default profile: "default"
+12:28:30.311 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+12:28:30.368 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 5 JPA repository interfaces.
+12:28:30.572 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+12:28:30.576 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+12:28:30.577 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:28:30.577 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+12:28:30.601 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:28:30.601 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 577 ms
+12:28:30.659 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+12:28:30.688 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.8.Final
+12:28:30.702 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:28:30.810 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+12:28:30.823 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
