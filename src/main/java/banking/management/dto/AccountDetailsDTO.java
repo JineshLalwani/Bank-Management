@@ -3,12 +3,9 @@ package banking.management.dto;
 import banking.management.model.*;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -17,6 +14,7 @@ import java.util.List;
 public class AccountDetailsDTO {
 
     private Long accountId;
+    private String accountNumber;
 
     @Enumerated(EnumType.STRING)
     private AccountType accountType;
