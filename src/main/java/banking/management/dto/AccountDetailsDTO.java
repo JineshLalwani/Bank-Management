@@ -14,7 +14,6 @@ import java.util.List;
 public class AccountDetailsDTO {
 
     private Long accountId;
-    private String accountNumber;
 
     @Enumerated(EnumType.STRING)
     private AccountType accountType;
