@@ -33,10 +33,10 @@ public class UserController {
             logger.info("User created successfully with ID: " + createdUser.getUserId());
             ResponseMeta meta = ResponseMeta.builder()
                     .isSuccess(true)
-                    .statusCode(HttpStatus.OK)
+                    .statusCode(HttpStatus.CREATED)
                     .displayMessage("User created successfully")
                     .build();
-            return ResponseEntity.ok(new APIResponse<>(meta, createdUser));
+            return ResponseEntity.status(HttpStatus.CREATED).body(new APIResponse<>(meta, createdUser));
         } catch (DataIntegrityViolationException e) {
             logger.log(Level.SEVERE, "Data integrity violation during user creation: " + e.getMessage());
             ResponseMeta meta = ResponseMeta.builder()
@@ -55,6 +55,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new APIResponse<>(meta, null));
         }
     }
+
 
     @GetMapping("/{userId}")
     public ResponseEntity<APIResponse<User>> getUserById(@PathVariable Long userId) {

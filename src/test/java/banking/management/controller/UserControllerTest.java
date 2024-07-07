@@ -7,133 +7,158 @@ import banking.management.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.mockito.Mockito.*;
 
-@WebMvcTest(UserController.class)
+@ExtendWith(SpringExtension.class)
 public class UserControllerTest {
 
-    @MockBean
+    @Mock
     private UserService userService;
 
     @InjectMocks
     private UserController userController;
 
-    private MockMvc mockMvc;
-
+    private User user;
     private UserDetailsDTO userDetailsDTO;
 
     @BeforeEach
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+
+        user = new User();
+        user.setUserId(1L);
+        user.setName("Jinesh Lalwani");
+        user.setEmail("jinesh@gmail.com");
+        user.setUserName("jinesh123");
+        user.setAddress("456 Another St");
+        user.setPhoneNumber("9876543210");
+        user.setDob("1992-02-02");
+        user.setPassword("securepassword");
 
         userDetailsDTO = new UserDetailsDTO();
         userDetailsDTO.setUserId(1L);
-        userDetailsDTO.setName("John Doe");
-        userDetailsDTO.setEmail("john.doe@example.com");
-        userDetailsDTO.setUserName("johndoe");
-        userDetailsDTO.setAddress("123 Main St");
-        userDetailsDTO.setPhoneNumber("1234567890");
-        userDetailsDTO.setDob("1990-01-01");
-        userDetailsDTO.setPassword("password");
+        userDetailsDTO.setName("Jinesh Lalwani");
+        userDetailsDTO.setEmail("jinesh@gmail.com");
+        userDetailsDTO.setUserName("jinesh123");
+        userDetailsDTO.setAddress("456 Another St");
+        userDetailsDTO.setPhoneNumber("9876543210");
+        userDetailsDTO.setDob("1992-02-02");
+        userDetailsDTO.setPassword("securepassword");
     }
 
     @Test
-    public void testCreateUser() throws Exception {
-        userDetailsDTO.setPassword("longpassword");
+    public void testCreateUser_Success() {
+        when(userService.createUser(any(UserDetailsDTO.class))).thenReturn(userDetailsDTO);
 
-        given(userService.createUser(any(UserDetailsDTO.class))).willReturn(userDetailsDTO);
+        ResponseEntity<APIResponse<UserDetailsDTO>> response = userController.createUser(userDetailsDTO);
 
-        mockMvc.perform(post("/api/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"userName\":\"johndoe\",\"address\":\"123 Main St\",\"phoneNumber\":\"1234567890\",\"dob\":\"1990-01-01\",\"password\":\"longpassword\"}"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.userId").value(1L))
-                .andExpect(jsonPath("$.data.name").value("John Doe"))
-                .andExpect(jsonPath("$.data.email").value("john.doe@example.com"));
+        assertNotNull(response);
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals(userDetailsDTO, response.getBody().getData());
+        assertTrue(response.getBody().getMeta().isSuccess());
     }
 
 
     @Test
-    public void testGetUserById() throws Exception {
-        User user = new User();
-        user.setUserId(1L);
-        user.setName("John Doe");
-        user.setEmail("john.doe@example.com");
+    public void testCreateUser_Failure() {
+        when(userService.createUser(any(UserDetailsDTO.class))).thenThrow(new RuntimeException("Unexpected error"));
 
-        given(userService.getUserById(anyLong())).willReturn(user);
+        ResponseEntity<APIResponse<UserDetailsDTO>> response = userController.createUser(userDetailsDTO);
 
-        mockMvc.perform(get("/api/users/1")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.userId").value(1L))
-                .andExpect(jsonPath("$.data.name").value("John Doe"))
-                .andExpect(jsonPath("$.data.email").value("john.doe@example.com"));
+        assertNotNull(response);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertNull(response.getBody().getData());
+        assertFalse(response.getBody().getMeta().isSuccess());
     }
 
     @Test
-    public void testGetUserByIdNotFound() throws Exception {
-        given(userService.getUserById(anyLong())).willThrow(new EntityNotFoundException("User not found with ID: 1"));
+    public void testGetUserById_Success() {
+        when(userService.getUserById(anyLong())).thenReturn(user);
 
-        mockMvc.perform(get("/api/users/1")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+        ResponseEntity<APIResponse<User>> response = userController.getUserById(1L);
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals(user, response.getBody().getData());
+        assertTrue(response.getBody().getMeta().isSuccess());
     }
 
     @Test
-    public void testUpdateUser() throws Exception {
-        given(userService.updateUser(anyLong(), any(UserDetailsDTO.class))).willReturn(userDetailsDTO);
+    public void testGetUserById_NotFound() {
+        when(userService.getUserById(anyLong())).thenThrow(new EntityNotFoundException("User not found with ID: 1"));
 
-        mockMvc.perform(put("/api/users/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"userName\":\"johndoe\",\"address\":\"123 Main St\",\"phoneNumber\":\"1234567890\",\"dob\":\"1990-01-01\",\"password\":\"password\"}"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.userId").value(1L))
-                .andExpect(jsonPath("$.data.name").value("John Doe"))
-                .andExpect(jsonPath("$.data.email").value("john.doe@example.com"));
+        ResponseEntity<APIResponse<User>> response = userController.getUserById(1L);
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertNull(response.getBody().getData());
+        assertFalse(response.getBody().getMeta().isSuccess());
     }
 
     @Test
-    public void testUpdateUserNotFound() throws Exception {
-        given(userService.updateUser(anyLong(), any(UserDetailsDTO.class))).willThrow(new EntityNotFoundException("User not found with ID: 1"));
+    public void testUpdateUser_Success() {
+        userDetailsDTO.setName("Updated Jinesh Lalwani");
+        when(userService.updateUser(anyLong(), any(UserDetailsDTO.class))).thenReturn(userDetailsDTO);
 
-        mockMvc.perform(put("/api/users/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"userName\":\"johndoe\",\"address\":\"123 Main St\",\"phoneNumber\":\"1234567890\",\"dob\":\"1990-01-01\",\"password\":\"password\"}"))
-                .andExpect(status().isNotFound());
+        ResponseEntity<APIResponse<UserDetailsDTO>> response = userController.updateUser(1L, userDetailsDTO);
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals(userDetailsDTO, response.getBody().getData());
+        assertTrue(response.getBody().getMeta().isSuccess());
     }
 
     @Test
-    public void testDeleteUser() throws Exception {
+    public void testUpdateUser_NotFound() {
+        when(userService.updateUser(anyLong(), any(UserDetailsDTO.class))).thenThrow(new EntityNotFoundException("User not found with ID: 1"));
+
+        ResponseEntity<APIResponse<UserDetailsDTO>> response = userController.updateUser(1L, userDetailsDTO);
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertNull(response.getBody().getData());
+        assertFalse(response.getBody().getMeta().isSuccess());
+    }
+
+    @Test
+    public void testDeleteUser_Success() {
         doNothing().when(userService).deleteUser(anyLong());
 
-        mockMvc.perform(delete("/api/users/1")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNoContent());
+        ResponseEntity<APIResponse<Void>> response = userController.deleteUser(1L);
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
     }
 
     @Test
-    public void testDeleteUserNotFound() throws Exception {
+    public void testDeleteUser_NotFound() {
         doThrow(new EntityNotFoundException("User not found with ID: 1")).when(userService).deleteUser(anyLong());
 
-        mockMvc.perform(delete("/api/users/1")
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+        ResponseEntity<APIResponse<Void>> response = userController.deleteUser(1L);
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertNull(response.getBody().getData());
+        assertFalse(response.getBody().getMeta().isSuccess());
     }
 }

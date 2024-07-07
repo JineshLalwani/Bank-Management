@@ -38,7 +38,7 @@ public class AccountControllerTest {
 
     @Test
     public void testCreateAccount_Success() {
-        // Arrange
+
         AccountDetailsDTO accountDetailsDTO = new AccountDetailsDTO();
         accountDetailsDTO.setAccountType(AccountType.SAVINGS);
         accountDetailsDTO.setCurrentBalance(1000);
@@ -49,10 +49,8 @@ public class AccountControllerTest {
 
         when(accountService.createAccount(any(AccountDetailsDTO.class))).thenReturn(accountDetailsDTO);
 
-        // Act
         ResponseEntity<APIResponse<AccountDetailsDTO>> response = accountController.createAccount(accountDetailsDTO);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -62,15 +60,12 @@ public class AccountControllerTest {
 
     @Test
     public void testCreateAccount_Failure() {
-        // Arrange
         AccountDetailsDTO accountDetailsDTO = new AccountDetailsDTO();
 
         when(accountService.createAccount(any(AccountDetailsDTO.class))).thenThrow(new RuntimeException("Unexpected error"));
 
-        // Act
         ResponseEntity<APIResponse<AccountDetailsDTO>> response = accountController.createAccount(accountDetailsDTO);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -80,7 +75,6 @@ public class AccountControllerTest {
 
     @Test
     public void testGetAccountById_Success() {
-        // Arrange
         AccountDetailsDTO accountDetailsDTO = new AccountDetailsDTO();
         accountDetailsDTO.setAccountId(1L);
         accountDetailsDTO.setAccountType(AccountType.SAVINGS);
@@ -92,10 +86,8 @@ public class AccountControllerTest {
 
         when(accountService.getAccountById(anyLong())).thenReturn(accountDetailsDTO);
 
-        // Act
         ResponseEntity<APIResponse<AccountDetailsDTO>> response = accountController.getAccountById(1L);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -105,13 +97,10 @@ public class AccountControllerTest {
 
     @Test
     public void testGetAccountById_NotFound() {
-        // Arrange
         when(accountService.getAccountById(anyLong())).thenThrow(new EntityNotFoundException("Account not found with ID: 1"));
 
-        // Act
         ResponseEntity<APIResponse<AccountDetailsDTO>> response = accountController.getAccountById(1L);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -121,7 +110,6 @@ public class AccountControllerTest {
 
     @Test
     public void testUpdateAccount_Success() {
-        // Arrange
         AccountDetailsDTO accountDetailsDTO = new AccountDetailsDTO();
         accountDetailsDTO.setAccountId(1L);
         accountDetailsDTO.setAccountType(AccountType.SAVINGS);
@@ -133,10 +121,8 @@ public class AccountControllerTest {
 
         when(accountService.updateAccount(anyLong(), any(AccountDetailsDTO.class))).thenReturn(accountDetailsDTO);
 
-        // Act
         ResponseEntity<APIResponse<AccountDetailsDTO>> response = accountController.updateAccount(1L, accountDetailsDTO);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -146,15 +132,12 @@ public class AccountControllerTest {
 
     @Test
     public void testUpdateAccount_NotFound() {
-        // Arrange
         AccountDetailsDTO accountDetailsDTO = new AccountDetailsDTO();
 
         when(accountService.updateAccount(anyLong(), any(AccountDetailsDTO.class))).thenThrow(new EntityNotFoundException("Account not found with ID: 1"));
 
-        // Act
         ResponseEntity<APIResponse<AccountDetailsDTO>> response = accountController.updateAccount(1L, accountDetailsDTO);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -164,13 +147,10 @@ public class AccountControllerTest {
 
     @Test
     public void testDeleteAccount_Success() {
-        // Arrange
         doNothing().when(accountService).deleteAccount(anyLong());
 
-        // Act
         ResponseEntity<APIResponse<Void>> response = accountController.deleteAccount(1L);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -180,13 +160,10 @@ public class AccountControllerTest {
 
     @Test
     public void testDeleteAccount_NotFound() {
-        // Arrange
         doThrow(new EntityNotFoundException("Account not found with ID: 1")).when(accountService).deleteAccount(anyLong());
 
-        // Act
         ResponseEntity<APIResponse<Void>> response = accountController.deleteAccount(1L);
 
-        // Assert
         assertNotNull(response);
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertNotNull(response.getBody());

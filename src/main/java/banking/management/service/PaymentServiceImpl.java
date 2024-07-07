@@ -86,7 +86,6 @@ public class PaymentServiceImpl implements PaymentService {
         }
     }
 
-    // Helper method to map Payment entity to PaymentAccountDTO
     private PaymentAccountDTO mapToDTO(Payment payment) {
         PaymentAccountDTO dto = new PaymentAccountDTO();
         dto.setPaymentId(payment.getPaymentId());
@@ -94,7 +93,7 @@ public class PaymentServiceImpl implements PaymentService {
         dto.setAccountId(payment.getAccount().getAccountId());
         dto.setAmountWithdrawn(payment.getAmountWithdrawn());
         dto.setAmountDeposited(payment.getAmountDeposited());
-        // Map other properties as needed
+
         return dto;
     }
 }
