@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
             return mapToDTO(savedUser);
         }catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while creating the user: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while creating the user");
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
             return userOptional.get();
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the user: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while retrieving the user");
@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService {
             return mapToDTO(updatedUser);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while updating the user: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while updating the user");
@@ -115,7 +115,7 @@ public class UserServiceImpl implements UserService {
             logger.info("User deleted successfully with ID: " + userId);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while deleting the user: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while deleting the user");

@@ -74,7 +74,7 @@ public class AccountServiceImpl implements AccountService {
             logger.info("Account created successfully with ID: " + savedAccount.getAccountId());
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException("Account not found with ID: " + accountDetailsDTO.getAccountId());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while creating the account: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while creating the account");
@@ -92,7 +92,7 @@ public class AccountServiceImpl implements AccountService {
             return mapToDTO(account);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException("Account not found with ID: " + accountId);
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the account: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while retrieving the account");
@@ -138,7 +138,7 @@ public class AccountServiceImpl implements AccountService {
             return mapToDTO(updatedAccount);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException("Account not found with ID: " + accountDetailsDTO.getAccountId());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while updating the account: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while updating the account");
@@ -157,7 +157,7 @@ public class AccountServiceImpl implements AccountService {
             logger.info("Account deleted successfully with ID: " + accountId);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException("Account not found with ID: " + accountId);
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while deleting the account: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while deleting the account");

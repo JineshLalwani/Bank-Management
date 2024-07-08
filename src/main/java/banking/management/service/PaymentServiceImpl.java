@@ -1,10 +1,8 @@
 package banking.management.service;
 
 import banking.management.dto.PaymentAccountDTO;
-import banking.management.model.Loan;
 import banking.management.model.Payment;
 import banking.management.model.Account;
-import banking.management.model.PaymentType;
 import banking.management.repository.LoanRepository;
 import banking.management.repository.PaymentRepository;
 import banking.management.repository.AccountRepository;
@@ -27,9 +25,6 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Autowired
     private AccountRepository accountRepository;
-
-    @Autowired
-    private LoanRepository loanRepository;
 
     private static final Logger logger = Logger.getLogger(PaymentServiceImpl.class.getName());
 
@@ -60,7 +55,7 @@ public class PaymentServiceImpl implements PaymentService {
             logger.info("Payment created successfully with ID: " + savedPayment.getPaymentId());
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException("Entity not found with ID: " + paymentAccountDTO.getAccountId());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while creating the payment: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while creating the payment");
@@ -79,7 +74,7 @@ public class PaymentServiceImpl implements PaymentService {
             return mapToDTO(payment);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while retrieving the payment: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while retrieving the payment");

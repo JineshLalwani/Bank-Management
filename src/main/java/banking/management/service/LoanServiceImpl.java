@@ -62,7 +62,7 @@ public class LoanServiceImpl implements LoanService {
             logger.info("Loan created successfully with ID: " + savedLoan.getLoanId());
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new  EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while creating the loan: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while creating the loan");
@@ -123,7 +123,7 @@ public class LoanServiceImpl implements LoanService {
             return mapToDTO(updatedLoan);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw e;
+            throw new  EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while updating the loan: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while updating the loan");
@@ -143,7 +143,7 @@ public class LoanServiceImpl implements LoanService {
             logger.info("Loan deleted successfully with ID: " + loanId);
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage(), e);
-            throw e;
+            throw new  EntityNotFoundException(e.getMessage());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while deleting the loan: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while deleting the loan");
