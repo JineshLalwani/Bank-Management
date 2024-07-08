@@ -1,0 +1,211 @@
+14:40:01.764 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:40:02.064 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:40:02.290 [Test worker] INFO  b.m.ManagementApplicationTests - Started ManagementApplicationTests in 4.821 seconds (process running for 6.264)
+14:40:02.300 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.AccountControllerTest]: AccountControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:40:02.321 [Test worker] INFO  b.m.controller.AccountController - Deleting account with ID: 1
+14:40:02.322 [Test worker] INFO  b.m.controller.AccountController - Account deleted successfully with ID: 1
+14:40:02.325 [Test worker] INFO  b.m.controller.AccountController - Deleting account with ID: 1
+14:40:02.325 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
+14:40:02.327 [Test worker] INFO  b.m.controller.AccountController - Creating new account...
+14:40:02.328 [Test worker] INFO  b.m.controller.AccountController - Account created successfully with ID: null
+14:40:02.331 [Test worker] INFO  b.m.controller.AccountController - Updating account with ID: 1
+14:40:02.331 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
+14:40:02.334 [Test worker] INFO  b.m.controller.AccountController - Creating new account...
+14:40:02.334 [Test worker] ERROR b.m.controller.AccountController - Unexpected error occurred while creating the account: Unexpected error
+14:40:02.338 [Test worker] INFO  b.m.controller.AccountController - Retrieving account with ID: 1
+14:40:02.338 [Test worker] INFO  b.m.controller.AccountController - Account retrieved successfully for ID: 1
+14:40:02.341 [Test worker] INFO  b.m.controller.AccountController - Updating account with ID: 1
+14:40:02.341 [Test worker] INFO  b.m.controller.AccountController - Account updated successfully with ID: 1
+14:40:02.344 [Test worker] INFO  b.m.controller.AccountController - Retrieving account with ID: 1
+14:40:02.344 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
+14:40:02.346 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.LoanControllerTest]: LoanControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:40:02.371 [Test worker] INFO  b.m.controller.LoanController - Creating new loan...
+14:40:02.371 [Test worker] INFO  b.m.controller.LoanController - Loan created successfully with ID: null
+14:40:02.376 [Test worker] INFO  b.m.controller.LoanController - Creating new loan...
+14:40:02.377 [Test worker] ERROR b.m.controller.LoanController - Entity not found: Account not found
+14:40:02.381 [Test worker] INFO  b.m.controller.LoanController - Deleting loan with ID: 1
+14:40:02.382 [Test worker] INFO  b.m.controller.LoanController - Loan deleted successfully with ID: 1
+14:40:02.384 [Test worker] INFO  b.m.controller.LoanController - Retrieving loan with ID: 1
+14:40:02.384 [Test worker] INFO  b.m.controller.LoanController - Loan retrieved successfully for ID: 1
+14:40:02.387 [Test worker] INFO  b.m.controller.LoanController - Updating loan with ID: 1
+14:40:02.387 [Test worker] INFO  b.m.controller.LoanController - Loan updated successfully with ID: 1
+14:40:02.390 [Test worker] INFO  b.m.controller.LoanController - Updating loan with ID: 1
+14:40:02.390 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
+14:40:02.393 [Test worker] INFO  b.m.controller.LoanController - Deleting loan with ID: 1
+14:40:02.393 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
+14:40:02.396 [Test worker] INFO  b.m.controller.LoanController - Retrieving loan with ID: 1
+14:40:02.396 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
+14:40:02.418 [Test worker] INFO  b.m.controller.PaymentController - Creating new payment...
+14:40:02.418 [Test worker] ERROR b.m.controller.PaymentController - Entity not found: Account not found
+14:40:02.420 [Test worker] INFO  b.m.controller.PaymentController - Retrieving payment with ID: 1
+14:40:02.420 [Test worker] INFO  b.m.controller.PaymentController - Payment retrieved successfully for ID: 1
+14:40:02.422 [Test worker] INFO  b.m.controller.PaymentController - Creating new payment...
+14:40:02.422 [Test worker] INFO  b.m.controller.PaymentController - Payment created successfully with ID: 1
+14:40:02.424 [Test worker] INFO  b.m.controller.PaymentController - Retrieving payment with ID: 1
+14:40:02.424 [Test worker] ERROR b.m.controller.PaymentController - Payment not found with ID: 1
+14:40:02.426 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.AccountServiceImplTest]: AccountServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:40:02.447 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration banking.management.ManagementApplication for test class banking.management.service.AccountServiceImplTest
+14:40:02.457 [Test worker] INFO  b.m.service.AccountServiceImplTest - Starting AccountServiceImplTest using Java 17.0.11 with PID 70229 (started by jinesh in /Users/jinesh/Downloads/management)
+14:40:02.460 [Test worker] INFO  b.m.service.AccountServiceImplTest - No active profile set, falling back to 1 default profile: "default"
+14:40:02.586 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:40:02.606 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+14:40:02.652 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:40:02.653 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+14:40:02.655 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+14:40:02.655 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+14:40:03.493 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61d87509
+14:40:03.494 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+14:40:03.626 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+14:40:05.305 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:40:05.356 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:40:05.414 [Test worker] INFO  b.m.service.AccountServiceImplTest - Started AccountServiceImplTest in 2.965 seconds (process running for 9.388)
+14:40:05.512 [Test worker] INFO  b.m.service.AccountServiceImpl - Deleting account with ID: 1
+14:40:05.512 [Test worker] INFO  b.m.service.AccountServiceImpl - Account deleted successfully with ID: 1
+14:40:05.516 [Test worker] INFO  b.m.service.AccountServiceImpl - Creating a new account...
+14:40:05.517 [Test worker] INFO  b.m.service.AccountServiceImpl - Account created successfully with ID: 1
+14:40:05.521 [Test worker] INFO  b.m.service.AccountServiceImpl - Deleting account with ID: 1
+14:40:05.521 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Account not found with ID: 1
+14:40:05.524 [Test worker] INFO  b.m.service.AccountServiceImpl - Retrieving account with ID: 1
+14:40:05.524 [Test worker] INFO  b.m.service.AccountServiceImpl - Account retrieved successfully for ID: 1
+14:40:05.528 [Test worker] INFO  b.m.service.AccountServiceImpl - Updating account with ID: 1
+14:40:05.528 [Test worker] INFO  b.m.service.AccountServiceImpl - Account updated successfully with ID: 1
+14:40:05.532 [Test worker] INFO  b.m.service.AccountServiceImpl - Creating a new account...
+14:40:05.532 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Details not found for IFSC: ICIC0000010
+14:40:05.536 [Test worker] INFO  b.m.service.AccountServiceImpl - Retrieving account with ID: 1
+14:40:05.536 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Account not found with ID: 1
+14:40:05.538 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.LoanServiceImplTest]: LoanServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:40:05.568 [Test worker] INFO  b.management.service.LoanServiceImpl - Creating a new loan...
+14:40:05.569 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan created successfully with ID: 1
+14:40:05.572 [Test worker] INFO  b.management.service.LoanServiceImpl - Deleting loan with ID: 1
+14:40:05.572 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan deleted successfully with ID: 1
+14:40:05.575 [Test worker] INFO  b.management.service.LoanServiceImpl - Retrieving loan with ID: 1
+14:40:05.575 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan retrieved successfully for ID: 1
+14:40:05.577 [Test worker] INFO  b.management.service.LoanServiceImpl - Creating a new loan...
+14:40:05.577 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan created successfully with ID: 1
+14:40:05.580 [Test worker] INFO  b.management.service.LoanServiceImpl - Updating loan with ID: 1
+14:40:05.580 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
+14:40:05.583 [Test worker] INFO  b.management.service.LoanServiceImpl - Deleting loan with ID: 1
+14:40:05.583 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
+jakarta.persistence.EntityNotFoundException: Loan not found with ID: 1
+	at banking.management.service.LoanServiceImpl.deleteLoan(LoanServiceImpl.java:140)
+	at banking.management.service.LoanServiceImplTest.lambda$testDeleteLoan_LoanNotFound$2(LoanServiceImplTest.java:230)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at banking.management.service.LoanServiceImplTest.testDeleteLoan_LoanNotFound(LoanServiceImplTest.java:229)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:119)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:119)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+14:40:05.588 [Test worker] INFO  b.management.service.LoanServiceImpl - Retrieving loan with ID: 1
+14:40:05.588 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
+14:40:05.589 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.PaymentServiceImplTest]: PaymentServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:40:05.619 [Test worker] INFO  b.m.service.PaymentServiceImpl - Retrieving payment with ID: 1
+14:40:05.619 [Test worker] ERROR b.m.service.PaymentServiceImpl - EntityNotFoundException: Payment not found with ID: 1
+14:40:05.621 [Test worker] INFO  b.m.service.PaymentServiceImpl - Retrieving payment with ID: 1
+14:40:05.622 [Test worker] INFO  b.m.service.PaymentServiceImpl - Payment retrieved successfully for ID: 1
+14:40:05.624 [Test worker] INFO  b.m.service.PaymentServiceImpl - Creating a new payment...
+14:40:05.625 [Test worker] ERROR b.m.service.PaymentServiceImpl - EntityNotFoundException: Account not found with ID: 1
+14:40:05.627 [Test worker] INFO  b.m.service.PaymentServiceImpl - Creating a new payment...
+14:40:05.628 [Test worker] INFO  b.m.service.PaymentServiceImpl - Payment created successfully with ID: 1
+14:40:05.630 [Test worker] INFO  b.management.service.UserServiceImpl - Retrieving user with ID: 1
+14:40:05.630 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
+14:40:05.632 [Test worker] INFO  b.management.service.UserServiceImpl - Updating user with ID: 1
+14:40:05.634 [Test worker] INFO  b.management.service.UserServiceImpl - User updated successfully with ID: 1
+14:40:05.636 [Test worker] INFO  b.management.service.UserServiceImpl - Deleting user with ID: 1
+14:40:05.636 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
+14:40:05.637 [Test worker] INFO  b.management.service.UserServiceImpl - Updating user with ID: 1
+14:40:05.638 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
+14:40:05.639 [Test worker] INFO  b.management.service.UserServiceImpl - Creating a new user...
+14:40:05.639 [Test worker] INFO  b.management.service.UserServiceImpl - User created successfully with ID: 1
+14:40:05.640 [Test worker] INFO  b.management.service.UserServiceImpl - Deleting user with ID: 1
+14:40:05.641 [Test worker] INFO  b.management.service.UserServiceImpl - User deleted successfully with ID: 1
+14:40:05.642 [Test worker] INFO  b.management.service.UserServiceImpl - Retrieving user with ID: 1
+14:40:05.642 [Test worker] INFO  b.management.service.UserServiceImpl - User retrieved successfully for ID: 1
+14:40:05.649 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:40:05.651 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:40:05.654 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+14:40:05.655 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:40:05.655 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+14:40:05.848 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

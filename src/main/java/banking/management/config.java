@@ -16,20 +16,20 @@ public class config {
     @Bean
     public OpenAPI customOpenAPI(){
         Server server = new Server();
-        String devURL = "http://localhost:9023";
+        String devURL = "http://localhost:8080";
         server.setUrl(devURL);
         server.setDescription("Server URL");
 
         //http://localhost:8080/swagger-ui/index.html#/
 
         Contact contact = new Contact();
-        contact.setUrl("https://www.google.com");
+        contact.setUrl("https://github.com/JineshLalwani/");
         contact.setName("Jinesh Lalwani");
-        contact.setEmail("john.doe@gmail.com");
+        contact.setEmail("jinesh@gmail.com");
 
         License license = new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0");
 
-        Info info = new Info().title("Banking Management System").version("1.0").contact(contact).description("h").license(license).termsOfService("http://www.google.com");
+        Info info = new Info().title("Banking Management System").version("1.0").contact(contact).description("Java Backend Banking Management With Facilities Of Loans and Payments.").license(license).termsOfService("http://www.google.com");
 
         return new OpenAPI().info(info).servers(List.of(server));
     }
