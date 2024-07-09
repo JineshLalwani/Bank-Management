@@ -3,13 +3,16 @@ package banking.management.service;
 import banking.management.dto.AccountDetailsDTO;
 import banking.management.model.Account;
 import banking.management.model.Details;
-import banking.management.model.Loan;
 import banking.management.model.User;
 import banking.management.repository.AccountRepository;
 import banking.management.repository.DetailsRepository;
 import banking.management.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +26,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Service
+@CacheConfig(cacheNames = "account")
 public class AccountServiceImpl implements AccountService {
 
     private static final Logger logger = Logger.getLogger(AccountServiceImpl.class.getName());
@@ -83,6 +87,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    @Cacheable(key = "#accountId")
     public AccountDetailsDTO getAccountById(Long accountId) {
         try {
             logger.info("Retrieving account with ID: " + accountId);
@@ -101,6 +107,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
+    @CachePut(key = "#accountId")
     public AccountDetailsDTO updateAccount(Long accountId, AccountDetailsDTO accountDetailsDTO) {
         try {
             logger.info("Updating account with ID: " + accountId);
@@ -147,6 +154,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
+    @CacheEvict(key= "#accountId")
     public void deleteAccount(Long accountId) {
         try {
             logger.info("Deleting account with ID: " + accountId);

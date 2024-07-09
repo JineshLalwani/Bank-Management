@@ -1,4 +1,4 @@
-package banking.management;
+package banking.management.config;
 
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class config {
+public class SwaggerConfig {
 
     @Bean
     public OpenAPI customOpenAPI(){
