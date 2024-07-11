@@ -1,5 +1,5 @@
-package banking.management.service;
-
-public interface OCRService {
-   String getOCR();
-}
+//package banking.management.service;
+//
+//public interface OCRService {
+//   String getOCR();
+//}
