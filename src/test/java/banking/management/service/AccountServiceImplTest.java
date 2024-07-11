@@ -102,6 +102,7 @@ public class AccountServiceImplTest {
     public void testCreateAccount_DetailsNotFound() {
 
         AccountDetailsDTO dto = new AccountDetailsDTO();
+        dto.setAccountId(1L);
         dto.setBankIfsc("ICIC0000010");
 
         when(detailsRepository.findByBankIfsc("ICIC0000010")).thenReturn(Optional.empty());

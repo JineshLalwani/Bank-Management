@@ -78,7 +78,7 @@ public class AccountServiceImpl implements AccountService {
             logger.info("Account created successfully with ID: " + savedAccount.getAccountId());
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
-            throw new EntityNotFoundException("Account not found with ID: " + accountDetailsDTO.getAccountId());
+            throw e;
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Unexpected error occurred while creating the account: " + e.getMessage());
             throw new RuntimeException("Unexpected error occurred while creating the account");

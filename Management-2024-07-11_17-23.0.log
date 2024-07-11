@@ -1,0 +1,23 @@
+17:23:08.109 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.AccountServiceImplTest]: AccountServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:23:08.198 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration banking.management.ManagementApplication for test class banking.management.service.AccountServiceImplTest
+17:23:08.352 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+17:23:08.366 [Test worker] INFO  b.m.service.AccountServiceImplTest - Starting AccountServiceImplTest using Java 17.0.11 with PID 3026 (started by jinesh in /Users/jinesh/Downloads/management)
+17:23:08.366 [Test worker] INFO  b.m.service.AccountServiceImplTest - No active profile set, falling back to 1 default profile: "default"
+17:23:08.780 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:23:08.835 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+17:23:09.081 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:23:09.113 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.8.Final
+17:23:09.130 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+17:23:09.237 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+17:23:09.252 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:23:09.628 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d93ff21
+17:23:09.629 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:23:10.188 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+17:23:10.986 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:23:11.334 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:23:11.599 [Test worker] INFO  b.m.service.AccountServiceImplTest - Started AccountServiceImplTest in 3.328 seconds (process running for 4.087)
+17:23:12.209 [Test worker] INFO  b.m.service.AccountServiceImpl - Creating a new account...
+17:23:12.211 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Details not found for IFSC: ICIC0000010
+17:23:12.245 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:23:12.247 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:23:12.258 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

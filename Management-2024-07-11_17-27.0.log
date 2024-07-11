@@ -1,98 +1,98 @@
-17:28:34.804 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.AccountServiceImplTest]: AccountServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:34.892 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration banking.management.ManagementApplication for test class banking.management.service.AccountServiceImplTest
-17:28:35.032 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-17:28:35.045 [Test worker] INFO  b.m.service.AccountServiceImplTest - Starting AccountServiceImplTest using Java 17.0.11 with PID 3136 (started by jinesh in /Users/jinesh/Downloads/management)
-17:28:35.046 [Test worker] INFO  b.m.service.AccountServiceImplTest - No active profile set, falling back to 1 default profile: "default"
-17:28:35.430 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-17:28:35.488 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
-17:28:35.722 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-17:28:35.744 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.8.Final
-17:28:35.758 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-17:28:35.851 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-17:28:35.864 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-17:28:36.348 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4efe014f
-17:28:36.349 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-17:28:36.926 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-17:28:37.728 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-17:28:38.066 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-17:28:38.378 [Test worker] INFO  b.m.service.AccountServiceImplTest - Started AccountServiceImplTest in 3.423 seconds (process running for 4.206)
-17:28:38.976 [Test worker] INFO  b.m.service.AccountServiceImpl - Deleting account with ID: 1
-17:28:38.978 [Test worker] INFO  b.m.service.AccountServiceImpl - Account deleted successfully with ID: 1
-17:28:38.999 [Test worker] INFO  b.m.service.AccountServiceImpl - Creating a new account...
-17:28:39.000 [Test worker] INFO  b.m.service.AccountServiceImpl - Account created successfully with ID: 1
-17:28:39.011 [Test worker] INFO  b.m.service.AccountServiceImpl - Deleting account with ID: 1
-17:28:39.012 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Account not found with ID: 1
-17:28:39.020 [Test worker] INFO  b.m.service.AccountServiceImpl - Retrieving account with ID: 1
-17:28:39.020 [Test worker] INFO  b.m.service.AccountServiceImpl - Account retrieved successfully for ID: 1
-17:28:39.027 [Test worker] INFO  b.m.service.AccountServiceImpl - Updating account with ID: 1
-17:28:39.028 [Test worker] INFO  b.m.service.AccountServiceImpl - Account updated successfully with ID: 1
-17:28:39.035 [Test worker] INFO  b.m.service.AccountServiceImpl - Creating a new account...
-17:28:39.035 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Details not found for IFSC: ICIC0000010
-17:28:39.041 [Test worker] INFO  b.m.service.AccountServiceImpl - Retrieving account with ID: 1
-17:28:39.041 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Account not found with ID: 1
-17:28:39.048 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.ManagementApplicationTests]: ManagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:39.062 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration banking.management.ManagementApplication for test class banking.management.ManagementApplicationTests
-17:28:39.088 [Test worker] INFO  b.m.ManagementApplicationTests - Starting ManagementApplicationTests using Java 17.0.11 with PID 3136 (started by jinesh in /Users/jinesh/Downloads/management)
-17:28:39.088 [Test worker] INFO  b.m.ManagementApplicationTests - No active profile set, falling back to 1 default profile: "default"
-17:28:39.305 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-17:28:39.328 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 5 JPA repository interfaces.
-17:28:39.415 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-17:28:39.417 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-17:28:39.423 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-17:28:39.424 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
-17:28:39.763 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74239871
-17:28:39.764 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
-17:28:39.868 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-17:28:40.791 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-17:28:40.921 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-17:28:41.057 [Test worker] INFO  b.m.ManagementApplicationTests - Started ManagementApplicationTests in 1.99 seconds (process running for 6.885)
-17:28:41.064 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.AccountControllerTest]: AccountControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:41.094 [Test worker] INFO  b.m.controller.AccountController - Deleting account with ID: 1
-17:28:41.095 [Test worker] INFO  b.m.controller.AccountController - Account deleted successfully with ID: 1
-17:28:41.103 [Test worker] INFO  b.m.controller.AccountController - Deleting account with ID: 1
-17:28:41.103 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
-17:28:41.106 [Test worker] INFO  b.m.controller.AccountController - Creating new account...
-17:28:41.107 [Test worker] INFO  b.m.controller.AccountController - Account created successfully with ID: null
-17:28:41.110 [Test worker] INFO  b.m.controller.AccountController - Updating account with ID: 1
-17:28:41.111 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
-17:28:41.114 [Test worker] INFO  b.m.controller.AccountController - Creating new account...
-17:28:41.114 [Test worker] ERROR b.m.controller.AccountController - Unexpected error occurred while creating the account: Unexpected error
-17:28:41.118 [Test worker] INFO  b.m.controller.AccountController - Retrieving account with ID: 1
-17:28:41.118 [Test worker] INFO  b.m.controller.AccountController - Account retrieved successfully for ID: 1
-17:28:41.122 [Test worker] INFO  b.m.controller.AccountController - Updating account with ID: 1
-17:28:41.122 [Test worker] INFO  b.m.controller.AccountController - Account updated successfully with ID: 1
-17:28:41.126 [Test worker] INFO  b.m.controller.AccountController - Retrieving account with ID: 1
-17:28:41.126 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
-17:28:41.128 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.LoanControllerTest]: LoanControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:41.155 [Test worker] INFO  b.m.controller.LoanController - Creating new loan...
-17:28:41.155 [Test worker] INFO  b.m.controller.LoanController - Loan created successfully with ID: null
-17:28:41.158 [Test worker] INFO  b.m.controller.LoanController - Creating new loan...
-17:28:41.159 [Test worker] ERROR b.m.controller.LoanController - Entity not found: Account not found
-17:28:41.162 [Test worker] INFO  b.m.controller.LoanController - Deleting loan with ID: 1
-17:28:41.162 [Test worker] INFO  b.m.controller.LoanController - Loan deleted successfully with ID: 1
-17:28:41.165 [Test worker] INFO  b.m.controller.LoanController - Retrieving loan with ID: 1
-17:28:41.165 [Test worker] INFO  b.m.controller.LoanController - Loan retrieved successfully for ID: 1
-17:28:41.168 [Test worker] INFO  b.m.controller.LoanController - Updating loan with ID: 1
-17:28:41.168 [Test worker] INFO  b.m.controller.LoanController - Loan updated successfully with ID: 1
-17:28:41.172 [Test worker] INFO  b.m.controller.LoanController - Updating loan with ID: 1
-17:28:41.172 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
-17:28:41.175 [Test worker] INFO  b.m.controller.LoanController - Deleting loan with ID: 1
-17:28:41.176 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
-17:28:41.179 [Test worker] INFO  b.m.controller.LoanController - Retrieving loan with ID: 1
-17:28:41.179 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
-17:28:41.204 [Test worker] INFO  b.m.controller.PaymentController - Creating new payment...
-17:28:41.204 [Test worker] ERROR b.m.controller.PaymentController - Entity not found: Account not found
-17:28:41.206 [Test worker] INFO  b.m.controller.PaymentController - Retrieving payment with ID: 1
-17:28:41.206 [Test worker] INFO  b.m.controller.PaymentController - Payment retrieved successfully for ID: 1
-17:28:41.208 [Test worker] INFO  b.m.controller.PaymentController - Creating new payment...
-17:28:41.208 [Test worker] INFO  b.m.controller.PaymentController - Payment created successfully with ID: 1
-17:28:41.210 [Test worker] INFO  b.m.controller.PaymentController - Retrieving payment with ID: 1
-17:28:41.210 [Test worker] ERROR b.m.controller.PaymentController - Payment not found with ID: 1
-17:28:41.213 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:41.241 [Test worker] INFO  b.m.controller.UserController - Creating new user...
-17:28:41.241 [Test worker] ERROR b.m.controller.UserController - Unexpected error occurred while creating the user: Unexpected error
-17:28:41.244 [Test worker] INFO  b.m.controller.UserController - Retrieving user with ID: 1
-17:28:41.244 [Test worker] ERROR b.m.controller.UserController - User not found with ID: 1
+17:27:23.304 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.AccountServiceImplTest]: AccountServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:27:23.399 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration banking.management.ManagementApplication for test class banking.management.service.AccountServiceImplTest
+17:27:23.550 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+17:27:23.563 [Test worker] INFO  b.m.service.AccountServiceImplTest - Starting AccountServiceImplTest using Java 17.0.11 with PID 3099 (started by jinesh in /Users/jinesh/Downloads/management)
+17:27:23.563 [Test worker] INFO  b.m.service.AccountServiceImplTest - No active profile set, falling back to 1 default profile: "default"
+17:27:23.982 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:27:24.033 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+17:27:24.273 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:27:24.305 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.8.Final
+17:27:24.323 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+17:27:24.432 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+17:27:24.445 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:27:24.804 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c9ef37b
+17:27:24.805 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:27:25.392 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+17:27:26.252 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:27:26.596 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:27:26.880 [Test worker] INFO  b.m.service.AccountServiceImplTest - Started AccountServiceImplTest in 3.409 seconds (process running for 4.221)
+17:27:27.493 [Test worker] INFO  b.m.service.AccountServiceImpl - Deleting account with ID: 1
+17:27:27.496 [Test worker] INFO  b.m.service.AccountServiceImpl - Account deleted successfully with ID: 1
+17:27:27.518 [Test worker] INFO  b.m.service.AccountServiceImpl - Creating a new account...
+17:27:27.519 [Test worker] INFO  b.m.service.AccountServiceImpl - Account created successfully with ID: 1
+17:27:27.531 [Test worker] INFO  b.m.service.AccountServiceImpl - Deleting account with ID: 1
+17:27:27.531 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Account not found with ID: 1
+17:27:27.539 [Test worker] INFO  b.m.service.AccountServiceImpl - Retrieving account with ID: 1
+17:27:27.539 [Test worker] INFO  b.m.service.AccountServiceImpl - Account retrieved successfully for ID: 1
+17:27:27.546 [Test worker] INFO  b.m.service.AccountServiceImpl - Updating account with ID: 1
+17:27:27.547 [Test worker] INFO  b.m.service.AccountServiceImpl - Account updated successfully with ID: 1
+17:27:27.554 [Test worker] INFO  b.m.service.AccountServiceImpl - Creating a new account...
+17:27:27.555 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Details not found for IFSC: ICIC0000010
+17:27:27.565 [Test worker] INFO  b.m.service.AccountServiceImpl - Retrieving account with ID: 1
+17:27:27.566 [Test worker] ERROR b.m.service.AccountServiceImpl - EntityNotFoundException: Account not found with ID: 1
+17:27:27.571 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.ManagementApplicationTests]: ManagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:27:27.591 [Test worker] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration banking.management.ManagementApplication for test class banking.management.ManagementApplicationTests
+17:27:27.621 [Test worker] INFO  b.m.ManagementApplicationTests - Starting ManagementApplicationTests using Java 17.0.11 with PID 3099 (started by jinesh in /Users/jinesh/Downloads/management)
+17:27:27.621 [Test worker] INFO  b.m.ManagementApplicationTests - No active profile set, falling back to 1 default profile: "default"
+17:27:27.837 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:27:27.872 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 5 JPA repository interfaces.
+17:27:27.955 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:27:27.957 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+17:27:27.961 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+17:27:27.962 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+17:27:28.250 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f709e71
+17:27:28.251 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+17:27:28.360 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+17:27:29.146 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:27:29.292 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:27:29.461 [Test worker] INFO  b.m.ManagementApplicationTests - Started ManagementApplicationTests in 1.867 seconds (process running for 6.803)
+17:27:29.468 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.AccountControllerTest]: AccountControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:27:29.499 [Test worker] INFO  b.m.controller.AccountController - Deleting account with ID: 1
+17:27:29.499 [Test worker] INFO  b.m.controller.AccountController - Account deleted successfully with ID: 1
+17:27:29.506 [Test worker] INFO  b.m.controller.AccountController - Deleting account with ID: 1
+17:27:29.506 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
+17:27:29.510 [Test worker] INFO  b.m.controller.AccountController - Creating new account...
+17:27:29.511 [Test worker] INFO  b.m.controller.AccountController - Account created successfully with ID: null
+17:27:29.513 [Test worker] INFO  b.m.controller.AccountController - Updating account with ID: 1
+17:27:29.513 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
+17:27:29.516 [Test worker] INFO  b.m.controller.AccountController - Creating new account...
+17:27:29.516 [Test worker] ERROR b.m.controller.AccountController - Unexpected error occurred while creating the account: Unexpected error
+17:27:29.519 [Test worker] INFO  b.m.controller.AccountController - Retrieving account with ID: 1
+17:27:29.519 [Test worker] INFO  b.m.controller.AccountController - Account retrieved successfully for ID: 1
+17:27:29.523 [Test worker] INFO  b.m.controller.AccountController - Updating account with ID: 1
+17:27:29.523 [Test worker] INFO  b.m.controller.AccountController - Account updated successfully with ID: 1
+17:27:29.527 [Test worker] INFO  b.m.controller.AccountController - Retrieving account with ID: 1
+17:27:29.527 [Test worker] ERROR b.m.controller.AccountController - Account not found with ID: 1
+17:27:29.529 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.LoanControllerTest]: LoanControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:27:29.558 [Test worker] INFO  b.m.controller.LoanController - Creating new loan...
+17:27:29.558 [Test worker] INFO  b.m.controller.LoanController - Loan created successfully with ID: null
+17:27:29.561 [Test worker] INFO  b.m.controller.LoanController - Creating new loan...
+17:27:29.561 [Test worker] ERROR b.m.controller.LoanController - Entity not found: Account not found
+17:27:29.564 [Test worker] INFO  b.m.controller.LoanController - Deleting loan with ID: 1
+17:27:29.564 [Test worker] INFO  b.m.controller.LoanController - Loan deleted successfully with ID: 1
+17:27:29.567 [Test worker] INFO  b.m.controller.LoanController - Retrieving loan with ID: 1
+17:27:29.567 [Test worker] INFO  b.m.controller.LoanController - Loan retrieved successfully for ID: 1
+17:27:29.570 [Test worker] INFO  b.m.controller.LoanController - Updating loan with ID: 1
+17:27:29.570 [Test worker] INFO  b.m.controller.LoanController - Loan updated successfully with ID: 1
+17:27:29.572 [Test worker] INFO  b.m.controller.LoanController - Updating loan with ID: 1
+17:27:29.573 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
+17:27:29.577 [Test worker] INFO  b.m.controller.LoanController - Deleting loan with ID: 1
+17:27:29.577 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
+17:27:29.580 [Test worker] INFO  b.m.controller.LoanController - Retrieving loan with ID: 1
+17:27:29.580 [Test worker] ERROR b.m.controller.LoanController - Loan not found with ID: 1
+17:27:29.607 [Test worker] INFO  b.m.controller.PaymentController - Creating new payment...
+17:27:29.607 [Test worker] ERROR b.m.controller.PaymentController - Entity not found: Account not found
+17:27:29.609 [Test worker] INFO  b.m.controller.PaymentController - Retrieving payment with ID: 1
+17:27:29.609 [Test worker] INFO  b.m.controller.PaymentController - Payment retrieved successfully for ID: 1
+17:27:29.611 [Test worker] INFO  b.m.controller.PaymentController - Creating new payment...
+17:27:29.611 [Test worker] INFO  b.m.controller.PaymentController - Payment created successfully with ID: 1
+17:27:29.613 [Test worker] INFO  b.m.controller.PaymentController - Retrieving payment with ID: 1
+17:27:29.613 [Test worker] ERROR b.m.controller.PaymentController - Payment not found with ID: 1
+17:27:29.615 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:27:29.643 [Test worker] INFO  b.m.controller.UserController - Creating new user...
+17:27:29.644 [Test worker] ERROR b.m.controller.UserController - Unexpected error occurred while creating the user: Unexpected error
+17:27:29.647 [Test worker] INFO  b.m.controller.UserController - Retrieving user with ID: 1
+17:27:29.647 [Test worker] ERROR b.m.controller.UserController - User not found with ID: 1
 jakarta.persistence.EntityNotFoundException: User not found with ID: 1
 	at banking.management.controller.UserController.getUserById(UserController.java:78)
 	at banking.management.controller.UserControllerTest.testGetUserById_NotFound(UserControllerTest.java:106)
@@ -181,31 +181,31 @@ jakarta.persistence.EntityNotFoundException: User not found with ID: 1
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-17:28:41.249 [Test worker] INFO  b.m.controller.UserController - Deleting user with ID: 1
-17:28:41.250 [Test worker] INFO  b.m.controller.UserController - User deleted successfully for ID: 1
-17:28:41.252 [Test worker] INFO  b.m.controller.UserController - Updating user with ID: 1
-17:28:41.252 [Test worker] INFO  b.m.controller.UserController - User updated successfully for ID: 1
-17:28:41.255 [Test worker] INFO  b.m.controller.UserController - Deleting user with ID: 1
-17:28:41.255 [Test worker] ERROR b.m.controller.UserController - User not found with ID: 1
-17:28:41.257 [Test worker] INFO  b.m.controller.UserController - Updating user with ID: 1
-17:28:41.257 [Test worker] ERROR b.m.controller.UserController - User not found with ID: 1
-17:28:41.260 [Test worker] INFO  b.m.controller.UserController - Creating new user...
-17:28:41.261 [Test worker] INFO  b.m.controller.UserController - User created successfully with ID: 1
-17:28:41.263 [Test worker] INFO  b.m.controller.UserController - Retrieving user with ID: 1
-17:28:41.264 [Test worker] INFO  b.m.controller.UserController - User retrieved successfully for ID: 1
-17:28:41.265 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.LoanServiceImplTest]: LoanServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:41.305 [Test worker] INFO  b.management.service.LoanServiceImpl - Creating a new loan...
-17:28:41.306 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan created successfully with ID: 1
-17:28:41.309 [Test worker] INFO  b.management.service.LoanServiceImpl - Deleting loan with ID: 1
-17:28:41.309 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan deleted successfully with ID: 1
-17:28:41.312 [Test worker] INFO  b.management.service.LoanServiceImpl - Retrieving loan with ID: 1
-17:28:41.312 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan retrieved successfully for ID: 1
-17:28:41.315 [Test worker] INFO  b.management.service.LoanServiceImpl - Creating a new loan...
-17:28:41.315 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan created successfully with ID: 1
-17:28:41.319 [Test worker] INFO  b.management.service.LoanServiceImpl - Updating loan with ID: 1
-17:28:41.319 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
-17:28:41.322 [Test worker] INFO  b.management.service.LoanServiceImpl - Deleting loan with ID: 1
-17:28:41.322 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
+17:27:29.655 [Test worker] INFO  b.m.controller.UserController - Deleting user with ID: 1
+17:27:29.655 [Test worker] INFO  b.m.controller.UserController - User deleted successfully for ID: 1
+17:27:29.658 [Test worker] INFO  b.m.controller.UserController - Updating user with ID: 1
+17:27:29.658 [Test worker] INFO  b.m.controller.UserController - User updated successfully for ID: 1
+17:27:29.661 [Test worker] INFO  b.m.controller.UserController - Deleting user with ID: 1
+17:27:29.662 [Test worker] ERROR b.m.controller.UserController - User not found with ID: 1
+17:27:29.664 [Test worker] INFO  b.m.controller.UserController - Updating user with ID: 1
+17:27:29.665 [Test worker] ERROR b.m.controller.UserController - User not found with ID: 1
+17:27:29.669 [Test worker] INFO  b.m.controller.UserController - Creating new user...
+17:27:29.669 [Test worker] INFO  b.m.controller.UserController - User created successfully with ID: 1
+17:27:29.671 [Test worker] INFO  b.m.controller.UserController - Retrieving user with ID: 1
+17:27:29.672 [Test worker] INFO  b.m.controller.UserController - User retrieved successfully for ID: 1
+17:27:29.673 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.LoanServiceImplTest]: LoanServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:27:29.714 [Test worker] INFO  b.management.service.LoanServiceImpl - Creating a new loan...
+17:27:29.715 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan created successfully with ID: 1
+17:27:29.717 [Test worker] INFO  b.management.service.LoanServiceImpl - Deleting loan with ID: 1
+17:27:29.718 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan deleted successfully with ID: 1
+17:27:29.721 [Test worker] INFO  b.management.service.LoanServiceImpl - Retrieving loan with ID: 1
+17:27:29.722 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan retrieved successfully for ID: 1
+17:27:29.725 [Test worker] INFO  b.management.service.LoanServiceImpl - Creating a new loan...
+17:27:29.725 [Test worker] INFO  b.management.service.LoanServiceImpl - Loan created successfully with ID: 1
+17:27:29.728 [Test worker] INFO  b.management.service.LoanServiceImpl - Updating loan with ID: 1
+17:27:29.729 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
+17:27:29.732 [Test worker] INFO  b.management.service.LoanServiceImpl - Deleting loan with ID: 1
+17:27:29.733 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
 jakarta.persistence.EntityNotFoundException: Loan not found with ID: 1
 	at banking.management.service.LoanServiceImpl.deleteLoan(LoanServiceImpl.java:140)
 	at banking.management.service.LoanServiceImplTest.lambda$testDeleteLoan_LoanNotFound$2(LoanServiceImplTest.java:230)
@@ -298,34 +298,34 @@ jakarta.persistence.EntityNotFoundException: Loan not found with ID: 1
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:66)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-17:28:41.327 [Test worker] INFO  b.management.service.LoanServiceImpl - Retrieving loan with ID: 1
-17:28:41.328 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
-17:28:41.329 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.PaymentServiceImplTest]: PaymentServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:41.364 [Test worker] INFO  b.m.service.PaymentServiceImpl - Retrieving payment with ID: 1
-17:28:41.364 [Test worker] ERROR b.m.service.PaymentServiceImpl - EntityNotFoundException: Payment not found with ID: 1
-17:28:41.367 [Test worker] INFO  b.m.service.PaymentServiceImpl - Retrieving payment with ID: 1
-17:28:41.367 [Test worker] INFO  b.m.service.PaymentServiceImpl - Payment retrieved successfully for ID: 1
-17:28:41.370 [Test worker] INFO  b.m.service.PaymentServiceImpl - Creating a new payment...
-17:28:41.371 [Test worker] ERROR b.m.service.PaymentServiceImpl - EntityNotFoundException: Account not found with ID: 1
-17:28:41.373 [Test worker] INFO  b.m.service.PaymentServiceImpl - Creating a new payment...
-17:28:41.374 [Test worker] INFO  b.m.service.PaymentServiceImpl - Payment created successfully with ID: 1
-17:28:41.377 [Test worker] INFO  b.management.service.UserServiceImpl - Retrieving user with ID: 1
-17:28:41.377 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
-17:28:41.379 [Test worker] INFO  b.management.service.UserServiceImpl - Updating user with ID: 1
-17:28:41.381 [Test worker] INFO  b.management.service.UserServiceImpl - User updated successfully with ID: 1
-17:28:41.382 [Test worker] INFO  b.management.service.UserServiceImpl - Deleting user with ID: 1
-17:28:41.383 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
-17:28:41.384 [Test worker] INFO  b.management.service.UserServiceImpl - Updating user with ID: 1
-17:28:41.385 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
-17:28:41.386 [Test worker] INFO  b.management.service.UserServiceImpl - Creating a new user...
-17:28:41.386 [Test worker] INFO  b.management.service.UserServiceImpl - User created successfully with ID: 1
-17:28:41.388 [Test worker] INFO  b.management.service.UserServiceImpl - Deleting user with ID: 1
-17:28:41.388 [Test worker] INFO  b.management.service.UserServiceImpl - User deleted successfully with ID: 1
-17:28:41.390 [Test worker] INFO  b.management.service.UserServiceImpl - Retrieving user with ID: 1
-17:28:41.390 [Test worker] INFO  b.management.service.UserServiceImpl - User retrieved successfully for ID: 1
-17:28:41.398 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-17:28:41.400 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-17:28:41.403 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-17:28:41.405 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-17:28:41.405 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
-17:28:41.572 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+17:27:29.737 [Test worker] INFO  b.management.service.LoanServiceImpl - Retrieving loan with ID: 1
+17:27:29.737 [Test worker] ERROR b.management.service.LoanServiceImpl - EntityNotFoundException: Loan not found with ID: 1
+17:27:29.739 [Test worker] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [banking.management.service.PaymentServiceImplTest]: PaymentServiceImplTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:27:29.779 [Test worker] INFO  b.m.service.PaymentServiceImpl - Retrieving payment with ID: 1
+17:27:29.780 [Test worker] ERROR b.m.service.PaymentServiceImpl - EntityNotFoundException: Payment not found with ID: 1
+17:27:29.782 [Test worker] INFO  b.m.service.PaymentServiceImpl - Retrieving payment with ID: 1
+17:27:29.782 [Test worker] INFO  b.m.service.PaymentServiceImpl - Payment retrieved successfully for ID: 1
+17:27:29.786 [Test worker] INFO  b.m.service.PaymentServiceImpl - Creating a new payment...
+17:27:29.786 [Test worker] ERROR b.m.service.PaymentServiceImpl - EntityNotFoundException: Account not found with ID: 1
+17:27:29.789 [Test worker] INFO  b.m.service.PaymentServiceImpl - Creating a new payment...
+17:27:29.789 [Test worker] INFO  b.m.service.PaymentServiceImpl - Payment created successfully with ID: 1
+17:27:29.793 [Test worker] INFO  b.management.service.UserServiceImpl - Retrieving user with ID: 1
+17:27:29.793 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
+17:27:29.795 [Test worker] INFO  b.management.service.UserServiceImpl - Updating user with ID: 1
+17:27:29.797 [Test worker] INFO  b.management.service.UserServiceImpl - User updated successfully with ID: 1
+17:27:29.799 [Test worker] INFO  b.management.service.UserServiceImpl - Deleting user with ID: 1
+17:27:29.799 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
+17:27:29.801 [Test worker] INFO  b.management.service.UserServiceImpl - Updating user with ID: 1
+17:27:29.801 [Test worker] ERROR b.management.service.UserServiceImpl - EntityNotFoundException: User not found with ID: 1
+17:27:29.804 [Test worker] INFO  b.management.service.UserServiceImpl - Creating a new user...
+17:27:29.804 [Test worker] INFO  b.management.service.UserServiceImpl - User created successfully with ID: 1
+17:27:29.806 [Test worker] INFO  b.management.service.UserServiceImpl - Deleting user with ID: 1
+17:27:29.806 [Test worker] INFO  b.management.service.UserServiceImpl - User deleted successfully with ID: 1
+17:27:29.808 [Test worker] INFO  b.management.service.UserServiceImpl - Retrieving user with ID: 1
+17:27:29.808 [Test worker] INFO  b.management.service.UserServiceImpl - User retrieved successfully for ID: 1
+17:27:29.817 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:27:29.819 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:27:29.823 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17:27:29.824 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:27:29.825 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+17:27:29.949 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

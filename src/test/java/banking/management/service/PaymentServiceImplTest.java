@@ -91,7 +91,7 @@ public class PaymentServiceImplTest {
             paymentService.createPayment(paymentAccountDTO);
         });
 
-        assertEquals("Account not found with ID: 1", exception.getMessage());
+        assertEquals("Entity not found with ID: 1", exception.getMessage());
         verify(accountRepository, times(1)).findByAccountId(anyLong());
         verify(paymentRepository, times(0)).save(any(Payment.class));
     }

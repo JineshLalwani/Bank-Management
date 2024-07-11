@@ -4,6 +4,7 @@ import banking.management.dto.UserDetailsDTO;
 import banking.management.model.User;
 import banking.management.response.APIResponse;
 import banking.management.response.ResponseMeta;
+import banking.management.service.OCRServiceImpl;
 import banking.management.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
@@ -22,6 +23,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private OCRServiceImpl ocrService;
     private ResponseMeta meta=new ResponseMeta();
 
     private static final Logger logger = Logger.getLogger(UserController.class.getName());
@@ -190,5 +194,11 @@ public class UserController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+
+    @GetMapping("/unirest")
+    public String unirestUser() {
+        return ocrService.getOCR();
     }
 }
