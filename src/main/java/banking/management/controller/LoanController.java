@@ -22,6 +22,7 @@ public class LoanController {
     @Autowired
     private LoanService loanService;
 
+
     private static final Logger logger = Logger.getLogger(LoanController.class.getName());
     ResponseMeta meta = new ResponseMeta();
 

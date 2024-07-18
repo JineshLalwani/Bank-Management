@@ -8,6 +8,7 @@ import banking.management.repository.AccountRepository;
 import banking.management.repository.LoanRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,6 +28,10 @@ public class LoanServiceImpl implements LoanService {
 
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+    private static final String LOAN_PREFIX="Loan :";
 
     private static final Logger logger = Logger.getLogger(LoanServiceImpl.class.getName());
 
@@ -69,15 +75,30 @@ public class LoanServiceImpl implements LoanService {
         }
         return mapToDTO(savedLoan);
     }
+    private void pushDataRedisByLoanDTO(LoanAccountDTO loanAccountDTO) {
+        redisTemplate.opsForValue().set(LOAN_PREFIX+loanAccountDTO.getLoanId(),loanAccountDTO,10, TimeUnit.MINUTES);
+    }
 
     @Override
     public LoanAccountDTO getLoanById(Long loanId) {
         try {
             logger.info("Retrieving loan with ID: " + loanId);
-            Loan loan = loanRepository.findById(loanId)
-                    .orElseThrow(() -> new EntityNotFoundException("Loan not found with ID: " + loanId));
-            logger.info("Loan retrieved successfully for ID: " + loanId);
-            return mapToDTO(loan);
+            LoanAccountDTO loanAccountDTO = (LoanAccountDTO) redisTemplate.opsForValue().get(LOAN_PREFIX+loanId);
+            if(loanAccountDTO!=null) {
+                logger.info("Retrieved loan from redis cache with ID: " + loanId);
+                return loanAccountDTO;
+            }
+            else{
+                Loan loan = loanRepository.findById(loanId)
+                        .orElseThrow(() -> new EntityNotFoundException("Loan not found with ID: " + loanId));
+                LoanAccountDTO loanAccountDTO1 = mapToDTO(loan);
+                pushDataRedisByLoanDTO(loanAccountDTO1);
+                logger.info("Loan retrieved successfully for ID: " + loanId);
+                return loanAccountDTO1;
+
+            }
+//            return loanAccountDTO;
+
         } catch (EntityNotFoundException e) {
             logger.log(Level.SEVERE, "EntityNotFoundException: " + e.getMessage());
             throw e;
