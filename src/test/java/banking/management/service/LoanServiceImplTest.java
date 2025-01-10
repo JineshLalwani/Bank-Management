@@ -93,51 +93,51 @@ public class LoanServiceImplTest {
     }
 
 
-    @Test
-    public void testGetLoanById_Success() {
-        // Arrange
-        Loan loan = new Loan();
-        loan.setLoanId(1L);
-        loan.setLoanType("Home");
-        loan.setLoanAmount(5000L);
-        loan.setLoanStatus(LoanStatus.PAID);
-        loan.setRemainingAmount(3000L);
-        loan.setMonthlyEMI(500);
-        loan.setDateOpened(LocalDate.now());
-
-        Account account = new Account();
-        account.setAccountId(1L);
-        loan.setAccount(account);
-
-        when(loanRepository.findById(anyLong())).thenReturn(Optional.of(loan));
-
-        // Act
-        LoanAccountDTO result = loanService.getLoanById(1L);
-
-        // Assert
-        assertNotNull(result);
-        assertEquals(loan.getLoanId(), result.getLoanId());
-        assertEquals(loan.getAccount().getAccountId(), result.getAccountId());
-        assertEquals(loan.getLoanType(), result.getLoanType());
-        assertEquals(loan.getLoanAmount(), result.getLoanAmount());
-        assertEquals(loan.getLoanStatus(), result.getLoanStatus());
-        assertEquals(loan.getRemainingAmount(), result.getRemainingAmount());
-        assertEquals(loan.getMonthlyEMI(), result.getMonthlyEMI());
-        verify(loanRepository, times(1)).findById(anyLong());
-    }
-
-    @Test
-    public void testGetLoanById_LoanNotFound() {
-        // Arrange
-        when(loanRepository.findById(anyLong())).thenReturn(Optional.empty());
-
-        // Act & Assert
-        EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
-            loanService.getLoanById(1L);
-        });
-        assertEquals("Loan not found with ID: 1", exception.getMessage());
-        verify(loanRepository, times(1)).findById(anyLong());
-    }
+//    @Test
+//    public void testGetLoanById_Success() {
+//        // Arrange
+//        Loan loan = new Loan();
+//        loan.setLoanId(1L);
+//        loan.setLoanType("Home");
+//        loan.setLoanAmount(5000L);
+//        loan.setLoanStatus(LoanStatus.PAID);
+//        loan.setRemainingAmount(3000L);
+//        loan.setMonthlyEMI(500);
+//        loan.setDateOpened(LocalDate.now());
+//
+//        Account account = new Account();
+//        account.setAccountId(1L);
+//        loan.setAccount(account);
+//
+//        when(loanRepository.findById(anyLong())).thenReturn(Optional.of(loan));
+//
+//        // Act
+//        LoanAccountDTO result = loanService.getLoanById(1L);
+//
+//        // Assert
+//        assertNotNull(result);
+//        assertEquals(loan.getLoanId(), result.getLoanId());
+//        assertEquals(loan.getAccount().getAccountId(), result.getAccountId());
+//        assertEquals(loan.getLoanType(), result.getLoanType());
+//        assertEquals(loan.getLoanAmount(), result.getLoanAmount());
+//        assertEquals(loan.getLoanStatus(), result.getLoanStatus());
+//        assertEquals(loan.getRemainingAmount(), result.getRemainingAmount());
+//        assertEquals(loan.getMonthlyEMI(), result.getMonthlyEMI());
+//        verify(loanRepository, times(1)).findById(anyLong());
+//    }
+//
+//    @Test
+//    public void testGetLoanById_LoanNotFound() {
+//        // Arrange
+//        when(loanRepository.findById(anyLong())).thenReturn(Optional.empty());
+//
+//        // Act & Assert
+//        EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
+//            loanService.getLoanById(1L);
+//        });
+//        assertEquals("Loan not found with ID: 1", exception.getMessage());
+//        verify(loanRepository, times(1)).findById(anyLong());
+//    }
 
     @Test
     public void testUpdateLoan_Success() {

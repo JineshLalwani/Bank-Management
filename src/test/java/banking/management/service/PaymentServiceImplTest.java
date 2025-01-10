@@ -1,11 +1,11 @@
 package banking.management.service;
 
 import banking.management.dto.PaymentAccountDTO;
-import banking.management.model.Payment;
 import banking.management.model.Account;
+import banking.management.model.Payment1;
 import banking.management.model.PaymentType;
-import banking.management.repository.PaymentRepository;
 import banking.management.repository.AccountRepository;
+import banking.management.repository.PaymentRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -55,7 +55,7 @@ public class PaymentServiceImplTest {
         account.setDateOpened(LocalDate.now());
         account.setPayments(new ArrayList<>());
 
-        Payment payment = new Payment();
+        Payment1 payment = new Payment1();
         payment.setPaymentId(1L);
         payment.setPaymentType(PaymentType.UPI);
         payment.setAmountWithdrawn(0);
@@ -63,12 +63,12 @@ public class PaymentServiceImplTest {
         payment.setAccount(account);
         payment.setAccountBalance(1500);
         payment.setTransactionDate(LocalDate.now());
-        List<Payment> paymentList = account.getPayments();
+        List<Payment1> paymentList = account.getPayments();
         paymentList.add(payment);
         account.setPayments(paymentList);
 
         when(accountRepository.findByAccountId(anyLong())).thenReturn(Optional.of(account));
-        when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
+        when(paymentRepository.save(any(Payment1.class))).thenReturn(payment);
 
         PaymentAccountDTO result = paymentService.createPayment(paymentAccountDTO);
 
@@ -77,7 +77,7 @@ public class PaymentServiceImplTest {
         assertEquals(payment.getPaymentType(), result.getPaymentType());
         assertEquals(payment.getAmountDeposited(), result.getAmountDeposited());
         verify(accountRepository, times(1)).findByAccountId(anyLong());
-        verify(paymentRepository, times(1)).save(any(Payment.class));
+        verify(paymentRepository, times(1)).save(any(Payment1.class));
     }
 
     @Test
@@ -93,7 +93,7 @@ public class PaymentServiceImplTest {
 
         assertEquals("Entity not found with ID: 1", exception.getMessage());
         verify(accountRepository, times(1)).findByAccountId(anyLong());
-        verify(paymentRepository, times(0)).save(any(Payment.class));
+        verify(paymentRepository, times(0)).save(any(Payment1.class));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class PaymentServiceImplTest {
         Account account = new Account();
         account.setAccountId(1L);
 
-        Payment payment = new Payment();
+        Payment1 payment = new Payment1();
         payment.setPaymentId(1L);
         payment.setPaymentType(PaymentType.UPI);
         payment.setAmountWithdrawn(0);

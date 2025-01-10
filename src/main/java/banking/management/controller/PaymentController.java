@@ -1,6 +1,7 @@
 package banking.management.controller;
 
 import banking.management.dto.PaymentAccountDTO;
+import banking.management.model.Payment1;
 import banking.management.response.APIResponse;
 import banking.management.response.ResponseMeta;
 import banking.management.service.PaymentService;
@@ -12,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -117,6 +119,56 @@ public class PaymentController {
             apiResponse.setData(null);
 
             return new ResponseEntity<>(apiResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/getPaymentHistory/{paymentId}")
+    public List<Payment1> getPaymentHistory(@PathVariable Long paymentId) {
+
+        try {
+            logger.info("Creating new payment...");
+            List<Payment1> createdPayment = paymentService.getPaymentHistory(paymentId);
+
+            meta.setSuccess(true);
+            meta.setStatusCode(HttpStatus.CREATED);
+            meta.setDisplayMessage("Payment audited successfully");
+
+            apiResponse.setMeta(meta);
+
+            return createdPayment;
+        } catch (EntityNotFoundException e) {
+            logger.log(Level.SEVERE, "Entity not found: " + e.getMessage());
+
+            meta.setSuccess(false);
+            meta.setStatusCode(HttpStatus.NOT_FOUND);
+            meta.setDisplayMessage("Account not found");
+
+            apiResponse.setMeta(meta);
+            apiResponse.setData(null);
+
+            return null;
+        } catch (DataIntegrityViolationException e) {
+            logger.log(Level.SEVERE, "Data integrity violation during payment creation: " + e.getMessage());
+
+            meta.setSuccess(false);
+            meta.setStatusCode(HttpStatus.NOT_ACCEPTABLE);
+            meta.setDisplayMessage("Data integrity violation");
+
+            apiResponse.setMeta(meta);
+            apiResponse.setData(null);
+
+            return null;
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Unexpected error occurred while creating the payment: " + e.getMessage());
+
+            meta.setSuccess(false);
+            meta.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+            meta.setDisplayMessage("Unexpected error occurred");
+
+            apiResponse.setMeta(meta);
+            apiResponse.setData(null);
+
+            return null;
         }
     }
 }
