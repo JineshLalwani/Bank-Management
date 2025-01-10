@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
@@ -56,19 +56,18 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 //
 @Configuration
 public class RedisConfig {
+
     @Bean
-    public LettuceConnectionFactory getLetConnection(){
-        RedisStandaloneConfiguration redisStandaloneConfiguration= new RedisStandaloneConfiguration();   // default setting therefore dont need to pass any hostname or password or port in the argument
-//        redisStandaloneConfiguration.setPassword(); for setting up password constructor doesnt have the password method
-        return new LettuceConnectionFactory(redisStandaloneConfiguration);
+    public LettuceConnectionFactory lettuceConnectionFactory() {
+        return new LettuceConnectionFactory(new RedisStandaloneConfiguration("localhost", 6379));
     }
 
     @Bean
-    public RedisTemplate getredistemplate(){
-        RedisTemplate<String,Object> template = new RedisTemplate<>();
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(new JdkSerializationRedisSerializer());
-        template.setConnectionFactory(getLetConnection());
-        return template;
+    public RedisTemplate<String, Object> redisTemplate() {
+        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(lettuceConnectionFactory());
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        return redisTemplate;
     }
 }

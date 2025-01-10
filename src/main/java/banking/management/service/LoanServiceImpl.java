@@ -30,7 +30,8 @@ public class LoanServiceImpl implements LoanService {
     private AccountRepository accountRepository;
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
+
     private static final String LOAN_PREFIX="Loan :";
 
     private static final Logger logger = Logger.getLogger(LoanServiceImpl.class.getName());

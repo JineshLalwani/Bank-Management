@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -29,7 +30,7 @@ public class Account {
 
     @OneToMany
     @JoinColumn
-    private List<Payment> payments;
+    private List<Payment1> payments;
 
     @OneToMany
     @JoinColumn()
